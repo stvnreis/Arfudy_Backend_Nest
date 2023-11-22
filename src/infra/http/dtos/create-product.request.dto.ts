@@ -59,7 +59,9 @@ export class CreateProductRequestDto {
 
   @IsOptional()
   @ValidateNested()
-  @Type((body) => (body.object.nutritionFacts ? Object : NutritionFactsDto))
+  @Type((body) =>
+    body.object.nutritionFacts === undefined ? Object : NutritionFactsDto,
+  )
   @ApiPropertyOptional({ type: NutritionFactsDto })
   nutritionFacts?: NutritionFactsDto;
 

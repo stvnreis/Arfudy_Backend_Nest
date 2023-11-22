@@ -12,7 +12,7 @@ import {
 } from '@nestjs/websockets';
 import { Server } from 'socket.io';
 
-@WebSocketGateway()
+@WebSocketGateway({ cors: '*' })
 export class WsOrdersGateway implements OrdersGateway {
   @WebSocketServer()
   private server: Server;

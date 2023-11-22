@@ -16,7 +16,7 @@ export type newClientOnService = {
   serviceId: string;
 };
 
-@WebSocketGateway()
+@WebSocketGateway({ cors: '*' })
 export class WsServicesGateway implements ServicesGateway {
   @WebSocketServer()
   private server: Server;

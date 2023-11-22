@@ -8,7 +8,7 @@ import { PrismaExceptionFilter } from './filters/prisma-exception.filter';
 import { TableInUseFilter } from './filters/table-in-use.filter';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
   const envService = app.get(EnvService);
   const logger = new Logger('arfudyBackendAPI');
 
